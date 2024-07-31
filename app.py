@@ -42,7 +42,6 @@ def inject_user():
     
     return dict(logged_in=current_user.is_authenticated, username=current_user.username if current_user.is_authenticated else None, adults=adults, adult_names=adult_first_names, questions=question_list, string_answers=current_adult_answers)
 
-
 @login_manager.user_loader
 def load_user(user_id):
     return Users.query.get(int(user_id))
