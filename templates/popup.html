@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="pop-up-containers">
+        <dialog id="finPers-popup">
+            <div class="popup-container">
+                <div>
+                    <h1>Financial Personality</h1>
+                </div>
+                <div>
+                    <h2>Results</h2>
+                </div>
+                <div>
+                    <button type="button" onclick="closePopUp()">Close</button>
+                </div>
+            </div>
+        </dialog>
+    </section>
+</body>
+<script>
+    const dialog = document.getElementById("finPers-popup")
+    const wrapper = document.querySelector(".popup-container")
+
+    dialog.showModal() 
+</script>
+</html>

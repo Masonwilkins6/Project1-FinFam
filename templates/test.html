@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/test.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="radio-tile-group">
+    
+    
+
+          <div class="container">
+            <form method="POST" id="1" action="{{url_for('questionaire3')}}">
+                <div class="radio-tile-group">
+                    <div class="input-container">
+                        <input id="saver" type="radio" name="q1_cur_adult" value="A">
+                        <div class="radio-tile">
+                            <ion-icon name="save-outline"></ion-icon>
+                            <label for="saver">Saver</label>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <input id="spender" type="radio" name="q1_cur_adult" value="B">
+                        <div class="radio-tile">
+                            <ion-icon name="wallet-outline"></ion-icon>
+                            <label for="spender">Spender</label>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <input id="investor" type="radio" name="q1_cur_adult" value="C">
+                        <div class="radio-tile">
+                            <ion-icon name="trending-up-outline"></ion-icon>
+                            <label for="investor">Investor</label>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <input id="risk-taker" type="radio" name="q1_cur_adult" value="D">
+                        <div class="radio-tile">
+                            <ion-icon name="rocket-outline"></ion-icon>
+                            <label for="risk-taker">Risk-taker</label>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <input id="cautious" type="radio" name="q1_cur_adult" value="E">
+                        <div class="radio-tile">
+                            <ion-icon name="shield-outline"></ion-icon>
+                            <label for="cautious">Cautious</label>
+                        </div>
+                    </div>
+                    <button id="save-button1" type="button" onclick="displayCurrentAdult('1'); change_adult('q1'); save('1', '1', '1'); disableSubmit('1','1');">Save</button>
+                </form>
+                    <button id="submit-button1" type="button"  disabled="true" onclick="submitAnswer('1','1','1'); test();">Submit</button>
+          </div>
+
+
+
+    
+        </div>
+      </div>
+    
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
+

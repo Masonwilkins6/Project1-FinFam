@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/app.css')}}">
+  </head>
+  <body>
+    <div class="off-screen-menu">
+      <ul>
+        {% if request.path == '/questionaire' or request.path == '/questionaire3' or request.path == '/questionaire2' or request.path == '/dashboard'%}
+
+        <a class="nav-button" href="{{url_for('home')}}">Home</a>
+    
+        {% else %}
+
+        <a class="nav-button" href="{{url_for('questionaire')}}">Get Started</a>
+    
+        {% endif %}
+
+        <a class="nav-button"   href="{{url_for('dashboard')}}">DashBoard</a>
+
+        {% if logged_in %}
+
+            <a class="nav-button" href="{{url_for('logout')}}">Logout</a>
+        
+        {% else %}
+            
+            <a class="nav-button" href="{{url_for('login')}}">Login</a>
+
+        {% endif %}
+
+        <a class="nav-button" href="{{url_for('register')}}">Register</a>
+      </ul>
+    </div>
+    <nav>
+      <div class="ham-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <script src="./app.js"></script>
+  </body>
+  <script>
+    var contentWidth = document.documentElement.clientWidth;
+    console.log("Current content area width is: " + contentWidth + "px");
+
+    
+    const hamMenu = document.querySelector(".ham-menu");
+
+    const offScreenMenu = document.querySelector(".off-screen-menu");
+
+    hamMenu.addEventListener("click", () => {
+        hamMenu.classList.toggle("active");
+        offScreenMenu.classList.toggle("active");
+    });
+  </script>
+</html>

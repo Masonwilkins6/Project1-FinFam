@@ -1,0 +1,824 @@
+*
+{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+body
+{
+    background: linear-gradient(to bottom right,  rgb(76, 108, 238), white);
+}
+
+@media only screen and (max-width: 600px) 
+{
+
+    body
+    {
+        height: 100vh;
+    }
+
+    .float-main-header
+    {
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        font-size: 6vw;
+    }
+    .float-sub-header
+    {
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        font-size: 4vw;
+    }
+
+    .questions
+    {
+        display: flex;
+        flex-direction: column;
+        padding: 5%;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .forms
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20vh;
+        border-radius: 10px;
+        margin-bottom: 5%;
+    }
+
+    #box1
+    {
+        background-color: rgb(124, 139, 226);
+        display: flex;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 4px 4px 4px black;
+    }
+
+    #form-box
+    {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .form-control
+    {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 95%;
+        height: 50px;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 14px;
+    }
+    label
+    {
+        font-size: 8vw;
+    }
+
+    #button-container
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #save-button
+    {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 2vw;
+        margin-bottom: 5%;
+        height: 30px;
+        align-items: center;
+        box-shadow: 4px 4px 4px black;
+        transform: translateY(-90%);
+    }
+
+    #next-button
+    {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 2vw;
+        margin-bottom: 5%;
+        height: 30px;
+        align-items: center;
+        box-shadow: 4px 4px 4px black;
+        transform: translateY(-90%);
+    }
+    
+    .next
+    {
+        width: 50%;
+        height: 5vh;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 1vw;
+        margin-bottom: 5%;
+    }
+    
+    #save-button:hover
+    {
+        background-color: #e99221;
+        cursor: pointer;
+    }
+    #next-button:hover
+    {
+        background-color: #e99221;
+        cursor: pointer;
+    }
+
+}
+
+@media only screen and (min-width: 455px) 
+{
+
+    body
+    {
+        height: 130vh;
+    }
+
+    .float-main-header
+    {
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        font-size: 6vw;
+    }
+    .float-sub-header
+    {
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        font-size: 4vw;
+    }
+
+    .questions
+    {
+        display: flex;
+        flex-direction: column;
+        padding: 5%;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .forms
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30vh;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        padding: 3%;
+    }
+
+    #box1
+    {
+        background-color: rgb(124, 139, 226);
+        display: flex;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 4px 4px 4px black;
+        padding: 3%;
+    }
+
+    #form-box
+    {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .form-control
+    {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 95%;
+        height: 50px;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 14px;
+    }
+    label
+    {
+        font-size: 8vw;
+    }
+
+    #button-container
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #save-button
+    {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 4vw;
+        margin-bottom: 5%;
+        height: 50px;
+        align-items: center;
+        box-shadow: 4px 4px 4px black;
+    }
+
+    #next-button
+    {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 4vw;
+        margin-bottom: 5%;
+        height: 50px;
+        align-items: center;
+        box-shadow: 4px 4px 4px black;
+    }
+    
+    .next
+    {
+        width: 50%;
+        height: 5vh;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 1vw;
+        margin-bottom: 5%;
+    }
+    
+    #save-button:hover
+    {
+        background-color: #e99221;
+        cursor: pointer;
+    }
+    #next-button:hover
+    {
+        background-color: #e99221;
+        cursor: pointer;
+    }
+
+}
+
+@media only screen and (min-width: 900px) 
+{
+
+    body
+    {
+        height: 170vh;
+    }
+
+    .float-main-header
+    {
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        font-size: 5vw;
+    }
+    .float-sub-header
+    {
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        font-size: 3vw;
+    }
+
+    .questions
+    {
+        display: flex;
+        flex-direction: column;
+        padding: 5%;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .forms
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30vh;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        padding: 3%;
+    }
+
+    #box1
+    {
+        background-color: rgb(124, 139, 226);
+        display: flex;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 4px 4px 4px black;
+        padding: 3%;
+    }
+
+    #form-box
+    {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .form-control
+    {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 95%;
+        height: 70px;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 3vw;
+    }
+    label
+    {
+        font-size: 5vw;
+    }
+
+    #button-container
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #save-button
+    {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 4vw;
+        margin-bottom: 5%;
+        height: 80px;
+        align-items: center;
+        box-shadow: 4px 4px 4px black;
+    }
+
+    #next-button
+    {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 4vw;
+        margin-bottom: 5%;
+        height: 80px;
+        align-items: center;
+        box-shadow: 4px 4px 4px black;
+    }
+    
+    
+    #save-button:hover
+    {
+        background-color: #e99221;
+        cursor: pointer;
+    }
+    #next-button:hover
+    {
+        background-color: #e99221;
+        cursor: pointer;
+    }
+
+}
+
+@media only screen and (min-width: 1284px)
+{
+
+    body
+    {
+        height: 200vh;
+    }
+
+    .float-main-header
+    {
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        font-size: 4vw;
+        height: 10vh;
+    }
+    .float-sub-header
+    {
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        font-size: 2vw;
+    }
+
+    .questions
+    {
+        display: flex;
+        flex-direction: column;
+        padding: 5%;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .forms
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30vh;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        padding: 3%;
+    }
+
+    #box1
+    {
+        background-color: rgb(124, 139, 226);
+        display: flex;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 4px 4px 4px black;
+        padding: 3%;
+    }
+
+    #form-box
+    {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .form-control
+    {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 95%;
+        height: 70px;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 1.5vw;
+    }
+    label
+    {
+        font-size: 3vw;
+    }
+
+    #button-container
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #save-button
+    {
+        display: flex;
+        justify-content: center;
+        width: 30%;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 1.5vw;
+        margin-bottom: 5%;
+        height: 80px;
+        align-items: center;
+        box-shadow: 4px 4px 4px black;
+    }
+
+    #next-button
+    {
+        display: flex;
+        justify-content: center;
+        width: 30%;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 1.5vw;
+        margin-bottom: 5%;
+        height: 80px;
+        align-items: center;
+        box-shadow: 4px 4px 4px black;
+    }
+    
+    
+    #save-button:hover
+    {
+        background-color: #e99221;
+        cursor: pointer;
+    }
+    #next-button:hover
+    {
+        background-color: #e99221;
+        cursor: pointer;
+    }
+
+}
+
+
+@media only screen and (min-width: 1700px)
+{
+
+    body
+    {
+        height: 180vh;
+    }
+
+    .float-main-header
+    {
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        font-size: 4vw;
+        height: 10vh;
+    }
+    .float-sub-header
+    {
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        font-size: 2vw;
+    }
+
+    .questions
+    {
+        display: flex;
+        flex-direction: column;
+        padding: 5%;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .forms
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30vh;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        padding: 3%;
+    }
+
+    #box1
+    {
+        background-color: rgb(124, 139, 226);
+        display: flex;
+        width: 70%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 4px 4px 4px black;
+        padding: 3%;
+    }
+
+    #form-box
+    {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .form-control
+    {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 95%;
+        height: 70px;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 2vw;
+    }
+    label
+    {
+        font-size: 3vw;
+    }
+
+    #button-container
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #save-button
+    {
+        display: flex;
+        justify-content: center;
+        width: 30%;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 2vw;
+        margin-bottom: 5%;
+        height: 80px;
+        align-items: center;
+        box-shadow: 4px 4px 4px black;
+    }
+
+    #next-button
+    {
+        display: flex;
+        justify-content: center;
+        width: 30%;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 2vw;
+        margin-bottom: 5%;
+        height: 80px;
+        align-items: center;
+        box-shadow: 4px 4px 4px black;
+    }
+    
+    
+    #save-button:hover
+    {
+        background-color: #e99221;
+        cursor: pointer;
+    }
+    #next-button:hover
+    {
+        background-color: #e99221;
+        cursor: pointer;
+    }
+
+}
+
+@media only screen and (min-width: 2200px)
+{
+
+    body
+    {
+        height: 250vh;
+    }
+
+    .float-main-header
+    {
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        font-size: 4vw;
+        height: 10vh;
+    }
+    .float-sub-header
+    {
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        font-size: 2vw;
+    }
+
+    .questions
+    {
+        display: flex;
+        flex-direction: column;
+        padding: 5%;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .forms
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30vh;
+        border-radius: 10px;
+        margin-bottom: 10%;
+        padding: 3%;
+    }
+
+    #box1
+    {
+        background-color: rgb(124, 139, 226);
+        display: flex;
+        width: 70%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 4px 4px 4px black;
+        padding: 3%;
+    }
+
+    #form-box
+    {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .form-control
+    {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 95%;
+        height: 70px;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 1.5vw;
+    }
+    label
+    {
+        font-size: 3vw;
+    }
+
+    #button-container
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #save-button
+    {
+        display: flex;
+        justify-content: center;
+        width: 30%;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 2vw;
+        margin-bottom: 5%;
+        height: 80px;
+        align-items: center;
+        box-shadow: 4px 4px 4px black;
+    }
+
+    #next-button
+    {
+        display: flex;
+        justify-content: center;
+        width: 30%;
+        border-radius: 12px;
+        border-color: transparent;
+        font-size: 2vw;
+        margin-bottom: 5%;
+        height: 80px;
+        align-items: center;
+        box-shadow: 4px 4px 4px black;
+    }
+    
+    
+    #save-button:hover
+    {
+        background-color: #e99221;
+        cursor: pointer;
+    }
+    #next-button:hover
+    {
+        background-color: #e99221;
+        cursor: pointer;
+    }
+
+}

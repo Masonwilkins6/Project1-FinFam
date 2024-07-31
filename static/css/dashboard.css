@@ -1,0 +1,403 @@
+.item1 { grid-area: header; }
+.item2-container { grid-area: main; }
+.item3-container { grid-area: right; }
+.item4-container { grid-area: main2; }
+.item5-container { grid-area: right2; }
+.item6-container { grid-area: main3; }
+.item7-container { grid-area: right3; }
+
+
+.grid-container {
+display: grid;
+height: 100vh;
+grid-template-areas:
+' header header header'
+' main main2 main3'
+' right right2 right3 ';
+gap: 1%;
+background: linear-gradient(to bottom right,  rgb(76, 108, 238), white);
+padding: 2%;
+column-gap: 1%; /* This sets the horizontal gap */
+row-gap: 2; /* This sets the vertical gap */
+
+}
+
+.grid-container > div{
+    text-align: center;
+    padding: 0%;
+}
+
+.item1
+{
+    margin-top: 3%;
+    height: 10vh;
+    font-size: 200%;
+    color: white;
+}
+
+.item2-container {
+    display: grid;
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    background-image: url('/static/images/finpersonality.jpg');
+    background-size: contain;
+    height: 320px;
+    border-radius: 8px;
+    background-size: 100% 100%;
+    /*border: 2px solid black;*/
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.item3-container {
+    display: grid;
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    background-image: url('/static/images/spendpriorities.jpg');
+    background-size: contain;
+    height: 320px;
+    border-radius: 8px;
+    background-size: 100% 100%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    
+}
+
+.item4-container
+{
+    font-size: 14px;
+    display: grid;
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    background-image: url('/static/images/financialgoals.jpg');
+    background-size: contain;
+    height: 320px;
+    border-radius: 8px;
+    background-size: 100% 100%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+.item5-container
+{
+    display: grid;
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    background-image: url('/static/images/financialindependence.jpg');
+    background-size: contain;
+    height: 320px;
+    border-radius: 8px;
+    background-size: 100% 100%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+.item6-container
+{
+    display: grid;
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    background-image: url('/static/images/finliteracy.jpg');
+    background-size: contain;
+    height: 320px;
+    border-radius: 8px;
+    background-size: 100% 100%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.item7-container {
+    display: grid;
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    background-image: url('/static/images/risktoler.jpg');
+    background-size: contain;
+    height: 320px;
+    border-radius: 8px;
+    background-size: 100% 100%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+
+.card__article {
+    position: relative;
+    overflow: hidden;
+}
+
+.card__img {
+    width: 100px; /* Make the image fill the entire container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 1.5rem;
+}
+
+.card__data {
+    width: 280px;
+    background-color: white; /* Set the background color to white */
+    padding: 1.5rem 2rem;
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+    border-radius: 1rem;
+    position: absolute;
+    bottom: -9rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    opacity: 1;
+    transition: opacity 1s 1s;
+}
+
+.card__description {
+display: block;
+font-size: var(--small-font-size);
+margin-bottom: .25rem;
+}
+
+.card__button:hover {
+text-decoration: underline;
+}
+
+/* Naming animations in hover */
+.card__article:hover .card__data {
+animation: show-data 1s forwards;
+opacity: 1;
+transition: opacity .3s;
+}
+
+.card__article:hover {
+animation: remove-overflow 2s forwards;
+}
+
+.card__article:not(:hover) {
+animation: show-overflow 2s forwards;
+}
+
+.card__article:not(:hover) .card__data {
+animation: remove-data 1s forwards;
+}
+
+
+/* Card animation */
+@keyframes show-data {
+50% {
+    transform: translateY(-10rem);
+}
+100% {
+    transform: translateY(-7rem);
+}
+}
+
+@keyframes remove-overflow {
+to {
+    overflow: initial;
+}
+}
+
+@keyframes remove-data {
+0% {
+    transform: translateY(-7rem);
+}
+50% {
+    transform: translateY(-10rem);
+}
+100% {
+    transform: translateY(.5rem);
+}
+}
+
+@keyframes show-overflow {
+0% {
+    overflow: initial;
+    pointer-events: none;
+}
+50% {
+    overflow: hidden;
+}
+}
+
+/* For small devices */
+@media screen and (max-width: 340px) {
+.container {
+    margin-inline: 1rem;
+}
+
+.card__data {
+    width: 250px;
+    padding: 1rem;
+}
+}
+
+/* For medium devices */
+@media screen and (min-width: 768px) {
+.card__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+}
+}
+
+/* For large devices */
+@media screen and (min-width: 1120px) {
+.container {
+    height: 100vh;
+}
+
+.card__container {
+    grid-template-columns: repeat(3, 1fr);
+}
+.card__img {
+    width: 348px;
+}
+.card__data {
+    width: 316px;
+    padding-inline: 2.5rem;
+}
+}
+
+
+/* The Modal (background) */
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+background-color: #1E2B35;
+margin: 15% auto; /* 15% from the top and centered */
+padding: 20px;
+border: 1px solid #888;
+width: 80%; /* Could be more or less, depending on screen size */
+height: 70vh;
+border-radius: 10px;
+color: white;
+}
+
+/* The Close Button */
+.close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+
+
+.question-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    gap: 2%;
+}
+
+.popup-header
+{
+    
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+}
+
+.popup-h1
+{
+    font-size: 150%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popup-h2
+{
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    font-size: 200%;
+}
+.popup-question
+{
+    margin-top: 2%;
+    margin-bottom: 5%;
+    font-size: 120%;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #52dd87;
+  }
+
+  button
+  {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 95%;
+    height: 30px;
+    border-radius: 12px;
+    border-color: transparent;
+    font-size: 1vw;
+  }
+
+  button:hover
+  {
+    background-color: orange;
+    cursor: pointer;
+  }
+
+.item2-container,
+.item3-container,
+.item4-container,
+.item5-container,
+.item6-container,
+.item7-container {
+    background-size: cover;
+}
+
+
+
+  @media screen and (max-width: 600px) {
+    .grid-container {
+      grid-template-areas:
+        'header'
+        'main'
+        'main2'
+        'main3'
+        'right'
+        'right2'
+        'right3';
+    }
+
+    button
+    {
+        font-size: 3vw;
+    }
+
+    .item1{
+        margin-bottom: 20%;
+    }
+  }
+  

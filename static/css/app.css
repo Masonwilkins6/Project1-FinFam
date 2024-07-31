@@ -1,0 +1,377 @@
+
+/* base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+html
+{
+    scroll-behavior: smooth;
+}
+
+a {
+    color: white;
+}
+a:visited {
+    color: white;
+}
+a:hover {
+    color: #6F86FF;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) 
+{
+
+    /* off-screen-menu */
+
+    .off-screen-menu {
+        background-color:  rgb(34, 37, 49);
+        height: 140vh;
+        width: 100%;
+        max-width: 667px;
+        position: fixed;
+        top: 0;
+        right: -560px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+        justify-content: center;
+        text-align: center;
+        font-size: 3rem;
+        transition: .3s ease;
+        gap: 10%;
+    }
+
+
+.off-screen-menu.active {
+    right: 0;
+}
+
+
+
+/* nav */
+nav {
+    padding: 1rem;
+    display: flex;
+    background-color: rgb(34, 37, 49);
+    width: 100%;
+}
+
+
+
+/* ham menu icon */
+.ham-menu {
+    height: 50px;
+    width: 40px;
+    margin-left: auto;
+    position: relative;
+}
+
+/*icon ham*/
+
+.ham-menu span {
+    height: 5px;
+    width: 100%;
+    background-color: #6F86FF;
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+.ham-menu span:nth-child(1) {
+    top: 25%;
+}
+.ham-menu span:nth-child(3) {
+    top: 75%;
+}
+.ham-menu.active span {
+    background-color: white;
+}
+.ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.ham-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+}
+
+
+
+
+
+
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) 
+{
+
+
+    /* off-screen-menu */
+
+    .off-screen-menu {
+        background-color:  rgb(34, 37, 49);
+        height: 140vh;
+        width: 100%;
+        max-width: 100%;
+        position: fixed;
+        top: 0;
+        right: -800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+        justify-content: center;
+        text-align: center;
+        font-size: 3rem;
+        transition: .3s ease;
+    }
+
+
+.off-screen-menu.active {
+    right: 0;
+}
+
+
+
+/* nav */
+nav {
+    padding: 1rem;
+    display: flex;
+    background-color: rgb(34, 37, 49);
+    width: 100%;
+}
+
+
+
+/* ham menu icon */
+.ham-menu {
+    height: 50px;
+    width: 40px;
+    margin-left: auto;
+    position: relative;
+}
+
+/*icon ham*/
+
+.ham-menu span {
+    height: 5px;
+    width: 100%;
+    background-color: #6F86FF;
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+.ham-menu span:nth-child(1) {
+    top: 25%;
+}
+.ham-menu span:nth-child(3) {
+    top: 75%;
+}
+.ham-menu.active span {
+    background-color: white;
+}
+.ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.ham-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+}
+
+
+
+
+
+
+/* Medium devices (landscape tablets, 771px and below) */
+@media only screen and (max-width: 1484px) 
+{
+
+
+    
+    /* off-screen-menu */
+
+    .off-screen-menu {
+        background-color:  rgb(34, 37, 49);
+        height: 140vh;
+        width: 100%;
+        max-width: 100%;
+        position: fixed;
+        top: 0;
+        right: -1500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+        justify-content: center;
+        text-align: center;
+        font-size: 3rem;
+        transition: .3s ease;
+        z-index: 9999;
+    }
+
+
+.off-screen-menu.active {
+    right: 0;
+    display: flex;
+}
+
+
+
+/* nav */
+nav {
+    padding: 1rem;
+    display: flex;
+    background-color: rgb(34, 37, 49);
+    width: 100%;
+}
+
+
+
+/* ham menu icon */
+.ham-menu {
+    height: 50px;
+    width: 40px;
+    margin-left: auto;
+    position: relative;
+    z-index: 9999;
+    gap: 20%;
+}
+
+/*icon ham*/
+
+.ham-menu span {
+    height: 5px;
+    width: 100%;
+    background-color: #6F86FF;
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+    z-index: 9999;
+}
+
+
+.ham-menu span:nth-child(1) {
+    top: 25%;
+}
+.ham-menu span:nth-child(3) {
+    top: 75%;
+}
+.ham-menu.active span {
+    background-color: white;
+}
+.ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.ham-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+}
+
+
+
+
+
+
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 1484px) 
+{
+
+
+
+    nav
+    {
+        display: none;
+    }
+
+    .off-screen-menu {
+        display: flex; /* Show the regular nav bar */ /* Align items in the center */
+        justify-content: space-around; /* Distribute items evenly */
+        height: 8vh;
+        right: 0;
+        z-index: 9999;
+    }
+
+    .ham-menu {
+        display: none; /* Hide the hamburger menu */
+    }
+    ul
+    {
+        display: flex;
+        gap: 10%;
+        width: 100%;
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding: 1%;
+        font-size: 1.2vw;
+    }
+    
+    
+}
+
+
+@media only screen and (min-width: 2125px) 
+{
+
+
+
+    nav
+    {
+        display: none;
+    }
+
+    .off-screen-menu {
+        display: flex; /* Show the regular nav bar */ /* Align items in the center */
+        justify-content: space-around; /* Distribute items evenly */
+        height: 8vh;
+        right: 0;
+    }
+
+    .ham-menu {
+        display: none; /* Hide the hamburger menu */
+    }
+    ul
+    {
+        display: flex;
+        gap: 10%;
+        width: 100%;
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding: 1%;
+        font-size: 1vw;
+    }
+    
+    
+}

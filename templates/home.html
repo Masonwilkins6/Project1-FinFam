@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/app.css')}}">
+    <title>Home</title>
+</head>
+    {% include 'navbar.html' %}
+<body>
+    <main class="home-page-body-container">
+        <header class="main-header">
+            <h1 id="home-header">FinFam<span id="period">.</span></h1>
+        </header>
+
+        <div class="sub-header">
+            <h2 id="home-sub-header">Finance for Families.</h2>
+        </div>
+    
+        <section class="image-card-home-body">
+            <article class="image-card">
+                <img class="image-card1" src="/static/images/6269571.jpg">
+                <h3 id="card1-text">Figure out your families financial goals<br><span id="card1-text-span">all in one place.</span></h3>
+            </article>
+    
+            <article class="image-card">
+                <img class="image-card2" src="/static/images/6273066.jpg">
+                <h3 id="card2-text2">A tool for advisors to connect<br>with the entire family.</h3>
+            </article>
+        </section>
+    
+        <footer class="get-started-button-container">
+            <div class="get-started-button">
+                {% if logged_in %}
+                    <a class="get-started" href="{{url_for('questionaire')}}">Get Started</a>
+                {% else %}
+                    <a class="get-started" href="{{url_for('register')}}">Get Started</a>
+                {% endif %}
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

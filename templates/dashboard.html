@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/dashboard.css')}}">
+    <title>Document</title>
+</head>
+ <section>
+        {% include 'navbar.html' %}
+    </section>
+    <div class="grid-container">
+        <div class="item1">
+            <h1>FinFam Results</h1>
+        </div>
+        <div class="item2-container">
+            <article class="card__article">
+                <div class="card__data">
+                    <h2 class="card__title">Financial Personality</h2>
+                    <button onclick="openModal('popup1')" id="myBtn1">View Results</button>
+                </div>
+            </article>
+        </div> 
+        <div class="item3-container">
+            <article class="card__article">
+                <div class="card__data">
+                    <h2 class="card__title">Spending Priorities</h2>
+                    <button type="button" onclick="openModal('popup2')" id="myBtn2">View Results</button>
+                </div>
+            </article>
+        </div> 
+        <div class="item4-container">
+            <article class="card__article">
+                <div class="card__data">
+                    <h2 class="card__title">Financial Goals Alignment</h2>
+                    <button type="button" onclick="openModal('popup3')" id="myBtn3">View Results</button>
+                </div>
+            </article>
+        </div> 
+        <div class="item5-container">
+            <article class="card__article">
+                <div class="card__data">
+                    <h2 class="card__title">Financial Independence</h2>
+                    <button type="button" onclick="openModal('popup4')" id="myBtn4">View Results</button>
+                </div>
+            </article>
+        </div> 
+        <div class="item6-container">
+            <article class="card__article">
+                <div class="card__data">
+                    <h2 class="card__title">Financial Literacy</h2>
+                    <button type="button" onclick="openModal('popup5')" id="myBtn5">View Results</button>
+                </div>
+            </article>
+        </div> 
+        <div class="item7-container">
+            <article class="card__article">
+                <div class="card__data">
+                    <h2 class="card__title">Risk Tolerance</h2>
+                    <button type="button" onclick="openModal('popup6')" id="myBtn6">View Results</button>
+                </div>
+            </article>
+        </div> 
+    </div>
+    <div id="popup1" onclick="windowOnClick(event, 'popup1')" class="modal">
+        <div class="modal-content">
+            <span  onclick="closeModal('popup1')" class="close">&times;</span>
+            <div class="question-container">
+                <div class="popup-header">
+                    <div class="popup-h1">
+                        <h1>Financial Personality</h1>
+                    </div>
+                    <div class="popup-h2">
+                        <h2>Question 1</h2>
+                    </div>
+                </div>
+                <div class="popup-question">
+                   " {{questions['question1']}} "
+                </div>
+            </div>
+            <table>
+                <tr>
+                    {% for value in adult_names.values() %}
+                    <th>
+                        <h2>{{ value }} answered:</h2>
+                    </th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for value in adult_names.values() %}
+
+                    {% if string_answers[value]|length >= 1 %}
+                    <th>
+                        <h2>{{string_answers[value][0][1]}}</h2>
+                    </th>
+                    {% endif %}
+
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="popup2" onclick="windowOnClick(event, 'popup2')" class="modal">
+        <div class="modal-content">
+            <span  onclick="closeModal('popup2')" class="close">&times;</span>
+            <div class="question-container">
+                <div class="popup-header">
+                    <div class="popup-h1">
+                        <h1>Spending Priorities</h1>
+                    </div>
+                    <div class="popup-h2">
+                        <h2>Question 3</h2>
+                    </div>
+                </div>
+                <div class="popup-question">
+                   " {{questions['question2']}} "
+                </div>
+            </div>
+            <table>
+                <tr>
+                    {% for value in adult_names.values() %}
+                    <th>
+                        <h2>{{ value }} answered:</h2>
+                    </th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for value in adult_names.values() %}
+
+                    {% if string_answers[value]|length >= 1 %}
+                    <th>
+                        <h2>{{string_answers[value][1][1]}}</h2>
+                    </th>
+                    {% endif %}
+                    
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="popup3" onclick="windowOnClick(event, 'popup3')" class="modal">
+        <div class="modal-content">
+            <span  onclick="closeModal('popup3')" class="close">&times;</span>
+            <div class="question-container">
+                <div class="popup-header">
+                    <div class="popup-h1">
+                        <h1>Financial Goals Alignment</h1>
+                    </div>
+                    <div class="popup-h2">
+                        <h2>Question 3</h2>
+                    </div>
+                </div>
+                <div class="popup-question">
+                   " {{questions['question3']}} "
+                </div>
+            </div>
+            <table>
+                <tr>
+                    {% for value in adult_names.values() %}
+                    <th>
+                        <h2>{{ value }} answered:</h2>
+                    </th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for value in adult_names.values() %}
+
+                    {% if string_answers[value]|length > 1 %}
+                    <th>
+                        <h2>{{string_answers[value][2][1]}}</h2>
+                    </th>
+                    {% endif %}
+                    
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="popup4" onclick="windowOnClick(event, 'popup4')" class="modal">
+        <div class="modal-content">
+            <span  onclick="closeModal('popup4')" class="close">&times;</span>
+            <div class="question-container">
+                <div class="popup-header">
+                    <div class="popup-h1">
+                        <h1>Financial Independence</h1>
+                    </div>
+                    <div class="popup-h2">
+                        <h2>Question 4</h2>
+                    </div>
+                </div>
+                <div class="popup-question">
+                   " {{questions['question4']}} "
+                </div>
+            </div>
+            <table>
+                <tr>
+                    {% for value in adult_names.values() %}
+                    <th>
+                        <h2>{{ value }} answered:</h2>
+                    </th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for value in adult_names.values() %}
+
+                    {% if string_answers[value]|length > 2 %}
+                    <th>
+                        <h2>{{string_answers[value][3][1]}}</h2>
+                    </th>
+                    {% endif %}
+                    
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="popup5" onclick="windowOnClick(event, 'popup5')" class="modal">
+        <div class="modal-content">
+            <span  onclick="closeModal('popup5')" class="close">&times;</span>
+            <div class="question-container">
+                <div class="popup-header">
+                    <div class="popup-h1">
+                        <h1>Financial Literacy</h1>
+                    </div>
+                    <div class="popup-h2">
+                        <h2>Question 5</h2>
+                    </div>
+                </div>
+                <div class="popup-question">
+                   " {{questions['question5']}} "
+                </div>
+            </div>
+            <table>
+                <tr>
+                    {% for value in adult_names.values() %}
+                    <th>
+                        <h2>{{ value }} answered:</h2>
+                    </th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for value in adult_names.values() %}
+
+                    {% if string_answers[value]|length > 3 %}
+                    <th>
+                        <h2>{{string_answers[value][4][1]}}</h2>
+                    </th>
+                    {% endif %}
+                    
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="popup6" onclick="windowOnClick(event, 'popup6')" class="modal">
+        <div class="modal-content">
+            <span  onclick="closeModal('popup6')" class="close">&times;</span>
+            <div class="question-container">
+                <div class="popup-header">
+                    <div class="popup-h1">
+                        <h1>Risk Tolerance</h1>
+                    </div>
+                    <div class="popup-h2">
+                        <h2>Question 6</h2>
+                    </div>
+                </div>
+                <div class="popup-question">
+                   " {{questions['question6']}} "
+                </div>
+            </div>
+            <table>
+                <tr>
+                    {% for value in adult_names.values() %}
+                    <th>
+                        <h2>{{ value }} answered:</h2>
+                    </th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for value in adult_names.values() %}
+
+                    {% if string_answers[value]|length > 4 %}
+                    <th>
+                        <h2>{{string_answers[value][5][1]}}</h2>
+                    </th>
+                    {% endif %}
+                    
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    // Function to open a modal
+function openModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = "block";
+}
+
+// Function to close a modal
+function closeModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = "none";
+}
+
+// Function to close a modal when clicking outside of it
+function windowOnClick(event, modalId) {
+    var modal = document.getElementById(modalId);
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+</script>
+<style>
+    .green {
+        background-color: green;
+    }
+</style>
+
+</html>

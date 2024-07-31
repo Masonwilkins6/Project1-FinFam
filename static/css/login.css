@@ -1,0 +1,178 @@
+*
+{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+@media only screen and (min-width: 400px)
+{
+    .container
+{
+    display: flex;
+    background-color: rgb(0, 0, 0);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.register-header-container
+{
+    text-align: center;
+    font-size: 8vw;
+    align-items: center;
+    color: white;
+}
+
+.register-form
+{
+    background-color: rgb(108, 109, 214);
+    text-align: center;
+    width: 80%;
+    padding: 5%;
+}
+
+.dont
+{
+    font-size: 4vw;
+    color: white;
+}
+
+.form-control
+{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 95%;
+    height: 50px;
+    border-radius: 12px;
+    border-color: transparent;
+    font-size: 4vw;
+}
+
+.submit .form-control:hover
+{
+    background-color: orange;
+}
+
+a:hover
+{
+    color: orange;
+}
+
+}
+
+@media only screen and (min-width: 900px)
+{
+    .container
+{
+    display: flex;
+    background-color: rgb(0, 0, 0);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.register-header-container
+{
+    text-align: center;
+    font-size: 4vw;
+    align-items: center;
+    color: white;
+}
+
+.register-form
+{
+    background-color: rgb(108, 109, 214);
+    text-align: center;
+    width: 40%;
+    padding: 5%;
+    height: 50vh;
+    margin-bottom: 10%;
+}
+
+.dont
+{
+    font-size: 2vw;
+    color: white;
+}
+
+.form-control
+{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 95%;
+    height: 50px;
+    border-radius: 12px;
+    border-color: transparent;
+    font-size: 2vw;
+}
+
+.submit .form-control:hover
+{
+    background-color: orange;
+}
+
+a:hover
+{
+    color: orange;
+}
+
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .container
+{
+    display: flex;
+    background-color: rgb(0, 0, 0);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.register-header-container
+{
+    text-align: center;
+    font-size: 8vw;
+    align-items: center;
+    color: white;
+}
+
+.register-form
+{
+    background-color: rgb(108, 109, 214);
+    text-align: center;
+    width: 80%;
+    padding: 5%;
+}
+
+.dont
+{
+    font-size: 4vw;
+    color: white;
+}
+
+.form-control
+{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 95%;
+    height: 50px;
+    border-radius: 12px;
+    border-color: transparent;
+    font-size: 4vw;
+}
+
+.submit .form-control:hover
+{
+    background-color: orange;
+}
+
+a:hover
+{
+    color: orange;
+}
+
+}

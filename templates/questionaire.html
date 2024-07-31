@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/app.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/questionaire.css')}}">
+    <title>Getting Started</title>
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+        <!-- Header Section -->
+        <div class="main-header">
+            <h1>Welcome!</h1>
+        </div>
+    
+        <!-- Information Section -->
+        <div>
+            <h1 class="slide-in-h1">Let's start off with some<br> basic information</h1>
+        </div>
+    
+        <!-- Form Section -->
+        <section class="questions">
+            <form class="form1" method="POST" action="">
+                <!-- Hidden Form -->
+                {{basic_form.hidden_tag()}}
+    
+                <!-- Number of Adults -->
+                <div id="box2">
+                    <label>How many adults?</label>
+                </div>
+                <div id="form-box">
+                    {{basic_form.num_adults(class='form-control')}}
+                </div>
+                <!-- Submit Button -->
+                <div class="submit">
+                    <div id="save-button">
+                        {{basic_form.submit(class='next')}}
+                    </div>
+                </div>
+            </form>
+        </section>
+    <script id="slide-in-animation">
+        document.addEventListener("DOMContentLoaded", 
+            
+            function (){
+
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshhold: 0.1
+                };
+
+                const observer =  new IntersectionObserver((entries, observer) => {
+                    
+                    entries.forEach((entry, index) => {
+                        
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.classList.add('h1-slide-in');
+                            }, index * 500);
+                            observer.unobserve(entry.target);
+                        }
+
+                    });
+
+                }, observerOptions)
+
+                const h1Elements = document.querySelectorAll('h1');
+
+                h1Elements.forEach(h1 => observer.observe(h1))
+
+            });
+    </script>
+</body>
+</html>

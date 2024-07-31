@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/questionaire3.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <section name="navbar">
+        {% include 'navbar.html' %}
+    </section>
+    <section class="float-main-header">
+        <h1 class="slide-in">Great one last thing!</h1>
+    </section>
+    <section class="container">
+        <div class="main-content">
+            <div class="question1-header-container">
+                <h1 id="question-header">Financial Personality</h1>
+            </div>
+            <div class="question-container">
+                <h2 id="question">How would you describe your financial personality?</h2>
+            </div>
+            <div class="question-description">
+                <p id="question-description">
+                    Understanding your financial personality helps you make informed decisions. 
+                </p>
+            </div>
+            <div class="current-header">
+                <span id="on-complete1"><h3 id="currently-answering">Currently Answering:</h3><h3 onload="" id="change-text1">{{adult_names['adult1']}}</h3></span>
+            </div>
+            <div class="container1">
+                <div class="radio-tile-group">
+                    <div class="container-inner">
+                        <form method="POST" id="1" action="{{url_for('questionaire3')}}">
+                            <div class="radio-tile-group">
+                                <div class="input-container">
+                                    <input id="saver" type="radio" name="q1_cur_adult" value="A">
+                                    <div class="radio-tile">
+                                        <ion-icon name="save-outline"></ion-icon>
+                                        <label for="saver">Saver</label>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <input id="spender" type="radio" name="q1_cur_adult" value="B">
+                                    <div class="radio-tile">
+                                        <ion-icon name="wallet-outline"></ion-icon>
+                                        <label for="spender">Spender</label>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <input id="investor" type="radio" name="q1_cur_adult" value="C">
+                                    <div class="radio-tile">
+                                        <ion-icon name="trending-up-outline"></ion-icon>
+                                        <label for="investor">Investor</label>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <input id="risk-taker" type="radio" name="q1_cur_adult" value="D">
+                                    <div class="radio-tile">
+                                        <ion-icon name="rocket-outline"></ion-icon>
+                                        <label for="risk-taker">Risk-taker</label>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <input id="cautious" type="radio" name="q1_cur_adult" value="E">
+                                    <div class="radio-tile">
+                                        <ion-icon name="shield-outline"></ion-icon>
+                                        <label for="cautious">Cautious</label>
+                                    </div>
+                                </div>
+                            </div> <!-- Closing tag for the inner "radio-tile-group" div -->
+                        </form>
+                        <div class="button-4-all">
+                            <button id="save-button1" type="button" onclick="displayCurrentAdult('1'); change_adult('q1'); save('1', '1', '1'); disableSubmit('1','1');">Save</button>
+                        </div>
+                        <div class="button-4-all">
+                            <button class="button-4-all" id="submit-button1" type="button"  disabled="true" onclick="submitAnswer('1','1','1'); test();">Submit</button>
+                        </div>
+                    </div> <!-- Closing tag for the "container-inner" div -->
+                </div> <!-- Closing tag for the "radio-tile-group" div -->
+            </div> <!-- Closing tag for the "container1" div -->            
+    </section>
+    <section class="container2">
+        <div class="main-content2">
+            <div class="question-header-container2">
+                <h1 id="question-header2">Spending Priorities</h1>
+            </div>
+            <div class="question-container2">
+                <h2 id="question2"> If you received an unexpected windfall of $10,000, what would you do with it?</h2>
+            </div>
+                <div class="question-description2">
+                    <p id="question-description2">This question helps you reflect on your financial values and priorities.
+                        It encourages thoughtful consideration of how you’d allocate unexpected
+                        funds, whether it’s saving for the future, paying off debt, or indulging 
+                        in something enjoyable.
+                    </p>
+                </div>
+                <div class="current-header2">
+                    <span id="on-complete2"><h3>Currently Answering:</h3><h3 id="change-text2">{{adult_names['adult1']}}</h3></span>
+                </div>
+            <div class="container2-inner">
+                <div class="radio-tile-group2">
+                    <form method="POST" id="2" action="{{url_for('questionaire3')}}">
+                        <div class="radio-tile-group2">
+                            <div class="input-container2">
+                                <input id="save-it" type="radio" name="q2_cur_adult" value="A">
+                                <div class="radio-tile2">
+                                    <ion-icon name="wallet"></ion-icon>
+                                    <label for="save-it">Save it</label>
+                                </div>
+                            </div>
+                            <div class="input-container2">
+                                <input id="invest-it" type="radio" name="q2_cur_adult" value="B">
+                                <div class="radio-tile2">
+                                    <ion-icon name="trending-up"></ion-icon>
+                                    <label for="invest-it">Invest it</label>
+                                </div>
+                            </div>
+                            <div class="input-container2">
+                                <input id="pay-off-debt" type="radio" name="q2_cur_adult" value="C">
+                                <div class="radio-tile2">
+                                    <ion-icon name="cash"></ion-icon>
+                                    <label for="pay-off-debt">Pay off debt</label>
+                                </div>
+                            </div>
+                            <div class="input-container2">
+                                <input id="splurge" type="radio" name="q2_cur_adult" value="D">
+                                <div class="radio-tile2">
+                                    <ion-icon name="gift"></ion-icon>
+                                    <label for="splurge">Splurge on something fun</label>
+                                </div>
+                            </div>
+                            <div class="input-container2">
+                                <input id="donate" type="radio" name="q2_cur_adult" value="E">
+                                <div class="radio-tile2">
+                                    <ion-icon name="heart"></ion-icon>
+                                    <label for="donate">Donate it</label>
+                                </div>
+                            </div>
+                        </div> <!-- Closing tag for the inner "radio-tile-group" div -->
+                    </form>
+                </div> <!-- Closing tag for the "radio-tile-group" div -->
+            </div> <!-- Closing tag for the inner "container" div -->
+            <div class="button-4-all-2">
+                <button id="save-button2" type="button" onclick="displayCurrentAdult('2'); change_adult('q2'); save('2', '2', '2'); disableSubmit('2','2');">Save</button>
+            </div>
+            <div class="button-4-all-2">
+                <button id="submit-button2" type="button"  disabled="true" onclick="submitAnswer('2','2','2'); test();">Submit</button>
+            </div>
+        </div> <!-- Closing tag for the "main-content" div -->
+    </section>
+    <section class="container3">
+        <div class="main-content3">
+            <div class="question-header-container3">
+                <h1 id="question-header3">Financial Goals Alignment</h1>
+            </div>
+            <div class="question-container3">
+                <h2 id="question">What is the most important financial goal for our family in the next five years?</h2>
+            </div>
+                <div class="question-description3">
+                    <p id="question-description3">Identifying family financial goals ensures everyone is on the same page. 
+                        Whether it’s homeownership, education, or retirement, alignment fosters effective planning.
+                    </p>
+                </div>
+                <div class="current-header3">
+                    <span id="on-complete3"><h3>Currently Answering:</h3><h3 id="change-text3">{{adult_names['adult1']}}</h3></span>
+                </div>
+            <div class="container3-inner">
+                <div class="radio-tile-group3">
+                    <form method="POST" id="3" action="{{url_for('questionaire3')}}">
+                        <div class="radio-tile-group3">
+                            <div class="input-container3">
+                                <input id="home" type="radio" name="q3_cur_adult" value="A">
+                                <div class="radio-tile3">
+                                    <ion-icon name="home"></ion-icon>
+                                    <label for="home">Buying a home</label>
+                                </div>
+                            </div>
+                            <div class="input-container3">
+                                <input id="debt" type="radio" name="q3_cur_adult" value="B">
+                                <div class="radio-tile3">
+                                    <ion-icon name="cash"></ion-icon>
+                                    <label for="debt">Paying off debt</label>
+                                </div>
+                            </div>
+                            <div class="input-container3">
+                                <input id="education" type="radio" name="q3_cur_adult" value="C">
+                                <div class="radio-tile3">
+                                    <ion-icon name="school"></ion-icon>
+                                    <label for="education">Save for education</label>
+                                </div>
+                            </div>
+                            <div class="input-container3">
+                                <input id="retirement" type="radio" name="q3_cur_adult" value="D">
+                                <div class="radio-tile3">
+                                    <ion-icon name="wallet"></ion-icon>
+                                    <label for="retirement">Retirement</label>
+                                </div>
+                            </div>
+                            <div class="input-container3">
+                                <input id="other" type="radio" name="q3_cur_adult" value="E">
+                                <div class="radio-tile3">
+                                    <ion-icon name="ellipsis-horizontal"></ion-icon>
+                                    <label for="other">Other</label>
+                                </div>
+                            </div>
+                        </div> <!-- Closing tag for the inner "radio-tile-group" div -->
+                    </form>
+                </div> <!-- Closing tag for the "radio-tile-group" div -->
+            </div> <!-- Closing tag for the inner "container" div -->
+            <div class="button-4-all-3">
+                <button id="save-button3" type="button" onclick="displayCurrentAdult('3'); change_adult('q3'); save('3', '3', '3'); disableSubmit('3','3');">Save</button>
+            </div>
+            <div class="button-4-all-3">
+                <button id="submit-button3" type="button"  disabled="true" onclick="submitAnswer('3','3','3'); test();">Submit</button>
+            </div>
+        </div> <!-- Closing tag for the "main-content" div -->
+    </section>
+    <section class="container4">
+        <div class="main-content4">
+            <div class="question-header-container4">
+                <h1 id="question-header4">Financial Independence</h1>
+            </div>
+            <div class="question-container4">
+                <h2 id="question">At what age do you hope to achieve financial independence?</h2>
+            </div>
+                <div class="question-description4">
+                    <p id="question-description4">
+                        Knowing when you hope to achieve financial independence guides your savings and investment strategies. 
+                        It’s a milestone to work towards.
+                    </p>
+                </div>
+                <div class="current-header4">
+                    <span id="on-complete4"><h3>Currently Answering:</h3><h3 id="change-text4">{{adult_names['adult1']}}</h3></span>
+                </div>
+            <div class="container4-inner">
+                <div class="radio-tile-group4">
+                    <form method="POST" id="4" action="{{url_for('questionaire3')}}">
+                        <div class="radio-tile-group4">
+                            <div class="input-container4">
+                                <input id="40" type="radio" name="q4_cur_adult" value="A">
+                                <div class="radio-tile4">
+                                    <ion-icon name="speedometer"></ion-icon>
+                                    <label for="40">40</label>
+                                </div>
+                            </div>
+                            <div class="input-container4">
+                                <input id="50" type="radio" name="q4_cur_adult" value="B">
+                                <div class="radio-tile4">
+                                    <ion-icon name="hourglass"></ion-icon>
+                                    <label for="50">50</label>
+                                </div>
+                            </div>
+                            <div class="input-container4">
+                                <input id="60" type="radio" name="q4_cur_adult" value="C">
+                                <div class="radio-tile4">
+                                    <ion-icon name="calendar"></ion-icon>
+                                    <label for="60">60</label>
+                                </div>
+                            </div>
+                            <div class="input-container4">
+                                <input id="never-thought" type="radio" name="q4_cur_adult" value="D">
+                                <div class="radio-tile4">
+                                    <ion-icon name="help-circle"></ion-icon>
+                                    <label for="never-thought">Never thought about it</label>
+                                </div>
+                            </div>
+                            <div class="input-container4">
+                                <input id="other" type="radio" name="q4_cur_adult" value="E">
+                                <div class="radio-tile4">
+                                    <ion-icon name="ellipsis-horizontal"></ion-icon>
+                                    <label for="other">Other</label>
+                                </div>
+                            </div>
+                        </div> <!-- Closing tag for the inner "radio-tile-group" div -->
+                    </form>
+                </div> <!-- Closing tag for the "radio-tile-group" div -->
+            </div> <!-- Closing tag for the inner "container" div -->
+            <div class="button-4-all-4">
+                <button id="save-button4" type="button" onclick="displayCurrentAdult('4'); change_adult('q4'); save('4', '4', '4'); disableSubmit('4','4');">Save</button>
+            </div>
+            <div class="button-4-all-4">
+                <button id="submit-button4" type="button"  disabled="true" onclick="submitAnswer('4','4','4'); test();">Submit</button>
+            </div>
+        </div> <!-- Closing tag for the "main-content" div -->
+    </section>
+    <section class="container5">
+        <div class="main-content5">
+            <div class="question-header-container5">
+                <h1 id="question-header5">Financial Literacy</h1>
+            </div>
+            <div class="question-container5">
+                <h2 id="question">How comfortable are you with managing our investments?</h2>
+            </div>
+                <div class="question-description5">
+                    <p id="question-description">
+                        Assessing your comfort with managing investments highlights areas for improvement. 
+                        Financial literacy empowers better decision-making.
+                    </p>
+                </div>
+                <div class="current-header5">
+                    <span id="on-complete5"><h3>Currently Answering:</h3><h3 id="change-text5">{{adult_names['adult1']}}</h3></span>
+                </div>
+            <div class="container5-inner">
+                <div class="radio-tile-group5">
+                    <form method="POST" id="5" action="{{url_for('questionaire3')}}">
+                        <div class="radio-tile-group5">
+                            <div class="input-container5">
+                                <input id="very-comfortable" type="radio" name="q5_cur_adult" value="A">
+                                <div class="radio-tile5">
+                                    <ion-icon name="happy"></ion-icon>
+                                    <label for="very-comfortable">Very comfortable</label>
+                                </div>
+                            </div>
+                            <div class="input-container5">
+                                <input id="somewhat-comfortable" type="radio" name="q5_cur_adult" value="B">
+                                <div class="radio-tile5">
+                                    <ion-icon name="hourglass"></ion-icon>
+                                    <label for="somewhat-comfortable">Somewhat comfortable</label>
+                                </div>
+                            </div>
+                            <div class="input-container5">
+                                <input id="comfortable" type="radio" name="q5_cur_adult" value="C">
+                                <div class="radio-tile5">
+                                    <ion-icon name="thumbs-up"></ion-icon>
+                                    <label for="comfortable">Comfortable</label>
+                                </div>
+                            </div>
+                            <div class="input-container5">
+                                <input id="not-comfortable" type="radio" name="q5_cur_adult" value="D">
+                                <div class="radio-tile5">
+                                    <ion-icon name="thumbs-down"></ion-icon>
+                                    <label for="not-comfortable">Not comfortable at all</label>
+                                </div>
+                            </div>
+                            <div class="input-container5">
+                                <input id="leave-it" type="radio" name="q5_cur_adult" value="E">
+                                <div class="radio-tile5">
+                                    <ion-icon name="people"></ion-icon>
+                                    <label for="leave-it">Leave it to the professionals</label>
+                                </div>
+                            </div>
+                        </div> <!-- Closing tag for the inner "radio-tile-group" div -->
+                    </form>
+                </div> <!-- Closing tag for the "radio-tile-group" div -->
+            </div> <!-- Closing tag for the inner "container" div -->
+            <div class="button-4-all-5">
+                <button id="save-button5" type="button" onclick="displayCurrentAdult('5'); change_adult('q5'); save('5', '5', '5'); disableSubmit('5','5');">Save</button>
+            </div>
+            <div class="button-4-all-5">
+                <button id="submit-button5" type="button"  disabled="true" onclick="submitAnswer('5','5','5'); test();">Submit</button>
+            </div>
+        </div> <!-- Closing tag for the "main-content" div -->
+    </section>
+    <section class="container6">
+        <div class="main-content6">
+            <div class="question-header-container6">
+                <h1 id="question-header6">Risk Tolerance</h1>
+            </div>
+            <div class="question-container6">
+                <h2 id="question">How comfortable are you with managing our investments?</h2>
+            </div>
+                <div class="question-description6">
+                    <p id="question-description">
+                        Assessing your comfort with managing investments highlights areas for improvement. 
+                        Financial literacy empowers better decision-making.
+                    </p>
+                </div>
+                <div class="current-header6">
+                    <span id="on-complete6"><h3>Currently Answering:</h3><h3 id="change-text6">{{adult_names['adult1']}}</h3></span>
+                </div>
+            <div class="container6-inner">
+                <div class="radio-tile-group6">
+                    <form method="POST" id="6" action="{{url_for('questionaire3')}}">
+                        <div class="radio-tile-group6">
+                            <div class="input-container6">
+                                <input id="high-risk" type="radio" name="q6_cur_adult" value="A">
+                                <div class="radio-tile6">
+                                    <ion-icon name="trending-up"></ion-icon>
+                                    <label for="high-risk">High risk</label>
+                                </div>
+                            </div>
+                            <div class="input-container6">
+                                <input id="medium-risk" type="radio" name="q6_cur_adult" value="B">
+                                <div class="radio-tile6">
+                                    <ion-icon name="bar-chart"></ion-icon>
+                                    <label for="medium-risk">Medium risk</label>
+                                </div>
+                            </div>
+                            <div class="input-container6">
+                                <input id="low-risk" type="radio" name="q6_cur_adult" value="C">
+                                <div class="radio-tile6">
+                                    <ion-icon name="shield"></ion-icon>
+                                    <label for="low-risk">Low risk</label>
+                                </div>
+                            </div>
+                            <div class="input-container6">
+                                <input id="no-risk" type="radio" name="q6_cur_adult" value="D">
+                                <div class="radio-tile6">
+                                    <ion-icon name="lock-closed"></ion-icon>
+                                    <label for="no-risk">No risk</label>
+                                </div>
+                            </div>
+                        </div> <!-- Closing tag for the inner "radio-tile-group" div -->
+                    </form>
+                </div> <!-- Closing tag for the "radio-tile-group" div -->
+            </div> <!-- Closing tag for the inner "container" div -->
+            <div class="button-4-all-6">
+                <button id="save-button6" type="button" onclick="displayCurrentAdult('6'); change_adult('q6'); save('6', '6', '6'); disableSubmit('6','6');">Save</button>
+            </div>
+            <div class="button-4-all-6">
+                <button id="submit-button6" type="button"  disabled="true" onclick="submitAnswer('6','6','6'); test();">Submit</button>
+            </div>
+        </div> <!-- Closing tag for the "main-content" div -->
+    </section>
+    <section class="result-button">
+        <div class="button-4-all">
+            <button onclick="route()">Results</button>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+<script id="adult_changer, disablesubmit">
+    
+
+    let disableCount = 0;
+    let currentAdult = "adult_0"; // Global variable to keep track of the current adult
+
+    // Function to handle changing the current adult
+    function change_adult(questionId) {
+
+        const currentNumber = parseInt(currentAdult.split("_")[1]);
+        let nextNumber = currentNumber + 1; // Increment the number
+
+        // Update the current adult with the new value (e.g., "adult_2")
+        currentAdult = `adult_${nextNumber}`;
+
+        $("#current_adult").val(`${questionId}_${nextNumber}`);
+
+        disableCount = disableCount + 1;
+        console.log("Disable Count: " + disableCount)
+        
+    }
+
+
+function disableSubmit(submitButtonNum, formNumber) {
+
+    // By default, disable the submit button
+    document.getElementById(`submit-button${submitButtonNum}`).disabled = true;
+
+    const adult_num = "{{ adults }}"
+
+    if (disableCount >= adult_num) 
+    {
+        document.getElementById(`save-button${submitButtonNum}`).disabled = true;
+        formStatus[`form${formNumber}`] = true; // Update the form status
+
+        // If save button is disabled, enable the submit button
+        document.getElementById(`submit-button${submitButtonNum}`).disabled = false;
+    } 
+    else 
+    {
+        document.getElementById(`save-button${submitButtonNum}`).disabled = false;
+        // If save button is enabled, disable the submit button
+        document.getElementById(`submit-button${submitButtonNum}`).disabled = true;
+    }
+
+    formStatus[`form${formNumber}`] = true;
+
+    if(disableCount == 2)
+    {
+        //Reset the current adult to "adult_0"
+        currentAdult = "adult_0";
+        disableCount = 0;
+    }
+}
+
+    
+    list_of_form_data = []
+
+    function save(formNumber, questionId, questionNumber)
+    {
+
+        const currentAdultNum = parseInt(currentAdult.split("_")[1]);
+        const adult_dict = JSON.parse('{{ adult_names|tojson|safe }}');
+
+        const adult_name = adult_dict[`adult${currentAdultNum}`];
+
+
+        const currentAdultAnswerSelector = `input[name="q${questionId}_cur_adult"]:checked`;
+        const currentAdultAnswer = document.querySelector(currentAdultAnswerSelector).value
+        
+        const current_question = parseInt(questionNumber)
+        
+        
+        const jsonData = {
+            question_number: current_question,
+            adult_answer: currentAdultAnswer
+        }
+
+        list_of_form_data.push({[adult_name] : jsonData})
+        console.log("LIST OF FORM DATA")
+        console.log(list_of_form_data)
+
+    
+    }
+
+
+</script>
+<script id="submitAnswer, ">
+    // Function to handle answer submission json data
+    const adult_dict = JSON.parse('{{ adult_names|tojson|safe }}');
+    function submitAnswer(formNumber,questionNumber,questionId) {
+
+        const form = document.getElementById(formNumber)
+        const formData = new FormData(form)
+
+        
+        const currentAdultNum = parseInt(currentAdult.split("_")[1]);
+        
+
+        const adult_name = adult_dict[`adult${currentAdultNum}`];
+
+        console.log("ADULT NAMES")
+        console.log(adult_name)
+
+        const currentAdultAnswerSelector = `input[name="q${questionId}_cur_adult"]:checked`;
+        const currentAdultAnswer = document.querySelector(currentAdultAnswerSelector).value
+        
+        const current_question = parseInt(questionNumber)
+        
+        
+        const jsonData = {
+            question_number: current_question,
+            current_adult: adult_name,
+            adult_answer: currentAdultAnswer
+        }
+
+        console.log("JSON DATA")
+        console.log(jsonData)
+
+        //send to save in db
+        fetch('/questionaire3', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(jsonData),
+        })
+
+
+        // send to route to process answers and inject into user session
+        fetch('/dashboard', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(list_of_form_data),
+        })
+
+    }
+</script>
+<script id="text-state-changer">
+
+    let current = 1;
+
+    const adult_num = "{{ adults }}"
+
+    function currentAdultCounter(currentQuestion) {
+
+
+
+        if(adult_num > 1) {
+            if(current <= adult_num){
+                current++;
+                document.querySelector(`.current-adult-val${currentQuestion}`).textContent = current;
+            }
+        }
+        else 
+        {
+            document.querySelector(`.current-adult-val${currentQuestion}`).textContent = current;
+        }
+
+        if (current > adult_num) {
+            current = 'Question Complete!';
+            document.querySelector(`.current-adult-val${currentQuestion}`).textContent = current;
+            document.querySelector(`.adult-count-p${currentQuestion}`).style.display = 'none'
+            document.querySelector(`.adult-c-p${currentQuestion}`).style.display = 'none'
+            
+        }
+
+        if(current > adult_num)
+        {
+            current = 1
+        }
+    }
+    
+</script>
+<script id="display current adult name">
+
+    const  dict = JSON.parse('{{ adult_names|tojson|safe }}');
+    
+    console.log("Adult Names: ", dict)
+        
+    const num_adults = "{{adults}}";
+
+    let count = 1;
+
+    function displayCurrentAdult(currentQuestion)
+    {
+        console.log("Count for displayAdult: " + count)
+
+        if(count <= (num_adults))
+        {
+            count++;
+            document.querySelector(`#change-text${currentQuestion}`).textContent = dict[`adult${count}`];
+
+        }
+
+        if (count > num_adults)
+        {
+            document.querySelector(`#on-complete${currentQuestion}`).textContent = "Question Complete!";
+            count = 1
+        }
+    }   
+</script>
+<script>
+
+    let formStatus = {};
+
+
+    console.log("form status: " + formStatus)
+
+   function test()
+   {
+
+    console.log(formStatus)
+    if(formStatus['form1'] === formStatus['form2'] === formStatus['form3'] === formStatus['form4'] === formStatus['form5'] === formStatus['form6'])
+    {
+        document.getElementById('resultsButton').disabled = false;
+    }
+   }
+
+   function route()
+   {
+    window.location.href = 'dashboard'
+   }
+</script>
+</html>

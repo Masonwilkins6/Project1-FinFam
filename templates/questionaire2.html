@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/app.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/questionaire2.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Name and age</title>
+</head>
+<body>
+    <section class="nav">
+        {%include 'navbar.html' %}
+    </section>
+    <div class="float-main-header">
+            <h1 class="h1-slide-in">Almost There!</h1>
+    </div>
+    <div class="float-sub-header">
+        <h1 class="h1-slide-in">Let's just grab<br>your name(s)!</h1>
+    </div>
+    <section class="questions">
+        {% for i in range(adults) %}
+        <form class="forms" method="POST" action="">
+            <div id="box1">
+                <label>Adult {{i + 1}} name: </label>
+                <div id="form-box">
+                    <input id="adult{{i}}" placeholder="Name (e.g John)" class="form-control"  required>
+                </div>
+            </div>
+        </form>
+        {%endfor%}
+    </section>
+    <div id="button-container">
+        <button id="save-button"  type="button"  onclick="onSubmit();">Save</button>
+    </div>
+    <div id="button-container">
+        <button id="next-button"  type="button"   onclick="test();">Next</button>
+    </div>
+</body>
+<script id="slide-in-animation">
+    document.addEventListener("DOMContentLoaded", 
+        
+        function (){
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshhold: 0.1
+            };
+
+            const observer =  new IntersectionObserver((entries, observer) => {
+                
+                entries.forEach((entry, index) => {
+                    
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('h1-slide-in');
+                        }, index * 500);
+                        observer.unobserve(entry.target);
+                    }
+
+                });
+
+            }, observerOptions)
+
+            const h1Elements = document.querySelectorAll('h1');
+
+            h1Elements.forEach(h1 => observer.observe(h1))
+
+        });
+</script>
+<script>
+    function onSubmit()
+    {
+        const num_adults = "{{adults}}"
+        const  adult_names = []
+        const jsonData = {}
+
+        console.log(num_adults)
+
+        for(let i = 0; i < num_adults; i++)
+        {   
+            adult_names.push(document.querySelector(`#adult${i}`).value)
+            jsonData[`adult${i}`] = adult_names[i]
+        }
+
+        console.log(jsonData)
+
+        fetch('/questionaire2', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(jsonData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert('Form submitted successfully!');
+            } else {
+                alert('Form submission failed.');
+            }
+        });
+        
+        //location.href = '/questionaire3'
+    }
+</script>
+<script>
+    function test()
+    {
+        location.href = '/questionaire3'
+    }
+</script>
+</html>
