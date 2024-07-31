@@ -113,9 +113,14 @@ a:hover
     background-color: orange;
 }
 
-a:hover
+.have a:hover
 {
     color: orange;
+}
+
+#have-an-account
+{
+    color: white;
 }
 
 }

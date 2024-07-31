@@ -61,7 +61,6 @@ class Users(db.Model, UserMixin):
     # relationships
     basic_answers = db.relationship(
         'UserAnswersBasic', backref='user', lazy=True)
-    children = db.relationship('Children', backref='user', lazy=True)
     adults = db.relationship('Adults', backref='user', lazy=True)
     question_1_answers = db.relationship(
         'AnswerQuestion1', backref='user', lazy=True)
