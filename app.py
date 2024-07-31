@@ -112,22 +112,6 @@ class Adults(db.Model, UserMixin):
     def __repr__(self):
         return "Adult name: {}".format(self.adult_name)
 
-
-class Children(db.Model, UserMixin):
-
-    __tablename__ = 'Children'
-
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'), nullable=False)
-    child_name = db.Column(db.String(80), nullable=False)
-    child_age = db.Column(db.Integer, nullable=False)
-
-    def __init__(self, name, age, user_id):
-        self.child_name = name
-        self.child_age = age
-        self.user_id = user_id
-
-
 class AnswerQuestion1(db.Model, UserMixin):
 
     __tablename__ = 'Question 1 Answers'
@@ -492,11 +476,6 @@ def questionaire3():
 
     # Pass form_data to the template
     return render_template('questionaire3.html')
-
-@app.route('/test')
-def test():
-    return render_template('test.html')
-
 
 with app.app_context():
     db.create_all()
