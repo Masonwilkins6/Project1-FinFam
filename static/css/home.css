@@ -13,11 +13,12 @@ html
 
 body
 {
-    background: linear-gradient(to bottom right,  rgb(76, 108, 238), white);
+    background: linear-gradient(to bottom right,  #0077CD, #ffffff);
+
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 455px) 
+@media only screen and (min-width: 455px) 
 {
     .home-page-body-container
     {
@@ -27,6 +28,13 @@ body
         flex-direction: column;
         font-size: 10vw;
     }
+
+    #home-header
+    {
+        color: #FF600A;
+        text-shadow: 4px 4px 4px black;
+    }
+
     .sub-header
     {
         width: 100%;
@@ -35,6 +43,8 @@ body
         font-size: 4vw;
         justify-content: center;
         padding: 3%;
+        color: white;
+        text-shadow: 4px 4px 4px black;
     }
 
     .image-card-home-body
@@ -63,12 +73,14 @@ body
         display: flex;
         width: 90%;
         border-radius: 10px;
+        box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
     }
     .image-card2
     {
         display: flex;
         width: 90%;
         border-radius: 10px;
+        box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
     }
 
     #card1-text-span
@@ -86,6 +98,7 @@ body
     h3
     {
         padding: 3%;
+        color: white;
     }
 
     .get-started-button-container
@@ -449,19 +462,23 @@ body
 
     .main-header
     {
-        
+        color: #FF600A;
         width: 100%;
         text-align: center;
         transform: translateY(-40%);
+        text-shadow: 4px 4px 4px black;
     }
 
     .sub-header
     {
+        color: white;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        transform: translateY(-40%);
+        transform: translateY(-80%);
+        font-size: 2.5vw;
+        text-shadow: 4px 4px 4px black;
     }
 
     .image-card-home-body {
@@ -477,33 +494,31 @@ body
         align-items: center;
         width: 100%;
         height: 100%;
-    }
-    .image-card3 {
-
-        text-align: center;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        height: 93vh;
+        transform: translateY(-30%);
     }
 
     .image-card h3 {
         text-align: center;
         font-size: 2vw;
+        color: white;
+        
     }
 
     .image-card1
     {
         display: flex;
-        width: 70%;
+        width: 40%;
         border-radius: 10px;
         align-items: center;
+        box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
     }
     .image-card2
     {
         display: flex;
-        width: 70%;
+        width: 40%;
         border-radius: 10px;
+        transform: translateY(-11%);
+        box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
     }
 
     #card1-text-span
@@ -512,10 +527,22 @@ body
         display: flex;
     }
 
+    #card1-text
+    {
+        font-size: 20px;
+    }
+
+
     #card2-text2-span
     {
         justify-content: center;
         display: flex;
+    }
+
+    #card2-text2
+    {
+        font-size: 20px;
+        transform: translateY(-35%);
     }
 
     .get-started-button-container

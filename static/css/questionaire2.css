@@ -19,7 +19,8 @@ body
 
     .float-main-header
     {
-        color: white;
+        color: #FF600A;
+        text-shadow: 4px 4px 4px black;
         display: flex;
         justify-content: center;
         padding: 5%;
@@ -27,7 +28,6 @@ body
     }
     .float-sub-header
     {
-        color: white;
         display: flex;
         justify-content: center;
         padding: 5%;
@@ -160,7 +160,8 @@ body
 
     .float-main-header
     {
-        color: white;
+        color: #FF600A;
+        text-shadow: 4px 4px 4px black;
         display: flex;
         justify-content: center;
         padding: 5%;
@@ -169,6 +170,7 @@ body
     .float-sub-header
     {
         color: white;
+        text-shadow: 4px 4px 4px black;
         display: flex;
         justify-content: center;
         padding: 5%;
@@ -208,6 +210,11 @@ body
         border-radius: 10px;
         box-shadow: 4px 4px 4px black;
         padding: 3%;
+    }
+
+    label
+    {
+        color: white;
     }
 
     #form-box
@@ -433,11 +440,12 @@ body
 
     .float-main-header
     {
-        color: white;
+        color: #FF600A;
+        text-shadow: 4px 4px 4px black;
         display: flex;
         justify-content: center;
         padding: 5%;
-        font-size: 4vw;
+        font-size: 2.5vw;
         height: 10vh;
     }
     .float-sub-header
@@ -445,8 +453,8 @@ body
         color: white;
         display: flex;
         justify-content: center;
-        padding: 5%;
-        font-size: 2vw;
+        padding: 1%;
+        font-size: 1.5vw;
     }
 
     .questions
@@ -475,7 +483,7 @@ body
     {
         background-color: rgb(124, 139, 226);
         display: flex;
-        width: 90%;
+        width: 40%;
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -504,7 +512,8 @@ body
     }
     label
     {
-        font-size: 3vw;
+        font-size: 1.5vw;
+        text-shadow: 4px 4px 4px black;
     }
 
     #button-container

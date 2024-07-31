@@ -32,7 +32,8 @@ row-gap: 2; /* This sets the vertical gap */
     margin-top: 3%;
     height: 10vh;
     font-size: 200%;
-    color: white;
+    color: #FF600A;
+    text-shadow: 4px 4px 4px black;
 }
 
 .item2-container {
@@ -397,7 +398,9 @@ table {
     }
 
     .item1{
-        margin-bottom: 20%;
+        margin-bottom: 10%;
+        color: #FF600A;
+        text-shadow: 4px 4px 4px black;
     }
   }
   

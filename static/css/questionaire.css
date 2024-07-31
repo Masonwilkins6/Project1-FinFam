@@ -6,10 +6,10 @@
 body
 {
     
-    background: linear-gradient(to bottom right,  rgb(76, 108, 238), white);
+    background: linear-gradient(to bottom right,  #0077CD, #ffffff);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
-    height: 140vh;
+    height: 100vh;
 }
 
 
@@ -24,10 +24,11 @@ body
 {
     margin-top:6%;
     height: 7vh;
-    font-size: 9vw;
+    font-size: 7vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .slide-in-h1
@@ -37,9 +38,13 @@ body
     justify-content: center;
     padding: 3%;
     align-items: center;
+    font-size: 5vw;
+    text-shadow: 4px 4px 4px black;
 }
-h1{
-    color: rgb(255, 255, 255);
+
+.main-header h1{
+    color: #FF600A;
+    text-shadow: 4px 4px 4px black;
 }
 
 .questions
@@ -61,26 +66,20 @@ form
     flex-direction: column;
     gap: 20%;
     box-shadow: 4px 4px 4px black;
+    height: 40vh;
 }
 
-#box2
+.box2
 {
-    margin-top: 30%;
-    width: 95%;
-    padding: 5%;
-    justify-content: center;
-    display: flex;
-    font-size: 7vw;
-    background-color: white;
-    border-radius: 14px;
-    color: black;
-    height: 6vh;
-    align-items: center;
-    text-align: center;
+    color: white;
+    font-size: 5vw;
+    padding: 10%;
+    text-shadow: 4px 4px 4px black;
 }
 
 #form-box
 {
+    transform: translateY(-80%);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -100,9 +99,11 @@ form
 
 .submit
 {
+    transform: translateY(-80%);
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 5%;
 }
 
 #save-button
@@ -152,8 +153,9 @@ form
         justify-content: center;
         padding: 2%;
     }
-    h1{
-        color: rgb(255, 255, 255);
+    .main-header  h1{
+            color: #FF600A;
+    text-shadow: 4px 4px 4px black;
     }
     
     .questions
@@ -493,6 +495,7 @@ form
         padding: 4%;
         font-size: 3.5vw;
         margin-bottom: 4%;
+        text-shadow: 4px 4px 4px black;
     }
     h1{
         color: rgb(255, 255, 255);
@@ -516,23 +519,14 @@ form
         display: flex;
         flex-direction: column;
         gap: 15%;
-        height: 80vh;
+        height: 40vh;
         box-shadow: 4px 4px 4px black;
     }
     
-    #box2
+    .box2
     {
-        padding: 3%;
-        margin-top: 10%;
-        width: 95%;
-        justify-content: center;
-        display: flex;
-        font-size: 4vw;
-        border-radius: 14px;
-        background-color: white;
-        color: black;
-        height: 10vh;
-        align-items: center;
+        font-size: 2.5vw ;
+        text-shadow: 4px 4px 4px black;
     }
     
     #form-box

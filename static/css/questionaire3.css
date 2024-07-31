@@ -4996,12 +4996,12 @@ body
   /* --------------------------------- first question -------------------------------------- */
   .float-main-header
   {
-      padding: 2%;
+      padding: 5%;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
-      margin-bottom: 15%;
+      margin-bottom: 5%;
   }
   .slide-in
   {
@@ -5028,8 +5028,8 @@ body
       height: 120vh;
       border-radius: 20px;
       flex-direction: column;
-      margin-bottom: 50%;
-      margin-top: 30%;
+      margin-bottom: 10%;
+      margin-top: 10%;
   
   }
   .question1-header-container
@@ -5217,6 +5217,7 @@ body
       height: 120vh;
       border-radius: 20px;
       flex-direction: column;
+      margin-bottom: 20%;
   
     }
     .question-header-container2
