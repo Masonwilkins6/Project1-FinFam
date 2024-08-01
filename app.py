@@ -5,14 +5,18 @@ from wtforms import StringField, PasswordField, SubmitField, IntegerField, FormF
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_wtf import FlaskForm
 from flask_bcrypt import Bcrypt
+from flask_session import Session
 
 
 app = Flask(__name__)
 app.config.update(
     SECRET_KEY="2@l!ITu",
     SQLALCHEMY_DATABASE_URI='postgresql://postgres:1234@localhost/Users',
-    SQLALCHEMY_TRACK_MODIFICATIONS=False
+    SQLALCHEMY_TRACK_MODIFICATIONS=False,
+    SESSION_TYPE = 'filesystem'
 )
+
+
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
@@ -21,6 +25,8 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
+
+Session(app)
 
 
 @app.context_processor
@@ -37,9 +43,9 @@ def inject_user():
     adults = session.get('adults')
     adult_first_names = session.get('adult_names')
     current_adult_answers = session.get('current_adult_answers')
-    print("HER")
+    print("SESSION CURRENT ADULT ANSWERS")
     print(current_adult_answers)
-    
+
     return dict(logged_in=current_user.is_authenticated, username=current_user.username if current_user.is_authenticated else None, adults=adults, adult_names=adult_first_names, questions=question_list, string_answers=current_adult_answers)
 
 @login_manager.user_loader
@@ -369,18 +375,25 @@ def dashboard():
     current_adult_answers = {}
     
     first_names = session.get('adult_names')
+    print(first_names)
     
     if request.is_json:
         data = request.get_json()
+        print("THIS IS DATA in dashboard")
+        print(data)
         
         for item in data:
         # Each item is a dictionary with a single key-value pair
             for name, data in item.items():
                 # Now you can access the values
                 question_number = data['question_number']
+                print("THIS IS DASHBOARD QUESTION NUMBER")
+                print(question_number)
                 adult_answer = data['adult_answer']
+                print("THIS IS DASHBOARD ADULT ANSWER")
+                print(adult_answer)
                 answer = eval(f'question_{question_number}_answers')[f'{adult_answer}']
-                print("ANSWER")
+                print("DASHBOARD ANSWER")
                 print(answer)
                 
                 if name not in current_adult_answers:
@@ -391,7 +404,12 @@ def dashboard():
                 print(current_adult_answers)
                 
                 current_adult_answers[name].append([question_number, answer])
+                
+                print("CURRENT ADULT ANSWERS AFTER ADD")
+                print(current_adult_answers)
             session['current_adult_answers'] = current_adult_answers
+            
+            print(session['current_adult_answers'])
 
     return render_template('dashboard.html')
 
@@ -452,6 +470,9 @@ def questionaire3():
         question_number = data.get('question_number')
         answer_choice = data.get('adult_answer')
         current_adult = data.get('current_adult')
+        
+        print("THIS IS DATA")
+        print(data)
         
         print(current_adult)
         if question_number == 1:
