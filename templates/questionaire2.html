@@ -24,20 +24,21 @@
             <div id="box1">
                 <label>Adult {{i + 1}} name: </label>
                 <div id="form-box">
-                    <input id="adult{{i}}" placeholder="Name (e.g John)" class="form-control"  required>
+                    <input id="adult{{i}}" placeholder="Name (e.g John)" class="form-control" onchange="resetSaveButton()"  oninput="validateInput()"  >
                 </div>
             </div>
         </form>
         {%endfor%}
     </section>
     <div id="button-container">
-        <button id="save-button"  type="button"  onclick="onSubmit();">Save</button>
+        <button id="save-button"  type="button"  onclick="onSubmit();" disabled >Save</button>
     </div>
     <div id="button-container">
-        <button id="next-button"  type="button"   onclick="test();">Next</button>
+        <button id="next-button"  type="button"   onclick="test();" disabled>Next</button>
     </div>
 </body>
 <script id="slide-in-animation">
+
     document.addEventListener("DOMContentLoaded", 
         
         function (){
@@ -70,8 +71,11 @@
         });
 </script>
 <script>
+
+
     function onSubmit()
     {
+
         const num_adults = "{{adults}}"
         const  adult_names = []
         const jsonData = {}
@@ -102,7 +106,12 @@
             }
         });
         
-        //location.href = '/questionaire3'
+        var saveButton = document.getElementById("save-button");
+        saveButton.disabled = true;
+        saveButton.innerHTML = "Saved &#10003;";
+        saveButton.dispatchEvent(new Event("change"));  // Trigger a "change" event
+    
+
     }
 </script>
 <script>
@@ -110,5 +119,36 @@
     {
         location.href = '/questionaire3'
     }
+</script>
+<script>
+
+    function resetSaveButton() {
+        var saveButton = document.getElementById("save-button");
+        saveButton.disabled = false;
+        saveButton.innerHTML = "Save";
+    }
+
+    function validateInput() {
+
+        var isValid = true;
+
+        var inputs = document.getElementsByClassName("form-control");
+
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].value.trim() <= 3) {
+                isValid = false;
+                break;
+            }
+        }
+
+        document.getElementById("save-button").disabled = !isValid;
+    }
+    
+    document.getElementById("save-button").addEventListener("change", function() {
+        document.getElementById("next-button").disabled = !this.disabled;
+    });
+    
+
+
 </script>
 </html>

@@ -77,7 +77,7 @@
                             <button id="save-button1" type="button" onclick="displayCurrentAdult('1'); change_adult('q1'); save('1', '1', '1'); disableSubmit('1','1');">Save</button>
                         </div>
                         <div class="button-4-all">
-                            <button class="button-4-all" id="submit-button1" type="button"  disabled="true" onclick="submitAnswer('1','1','1'); test();">Submit</button>
+                            <button class="button-4-all" id="submit-button1" type="button"  disabled="true" onclick="submitAnswer('1','1','1'); ;">Submit</button>
                         </div>
                     </div> <!-- Closing tag for the "container-inner" div -->
                 </div> <!-- Closing tag for the "radio-tile-group" div -->
@@ -148,7 +148,7 @@
                 <button id="save-button2" type="button" onclick="displayCurrentAdult('2'); change_adult('q2'); save('2', '2', '2'); disableSubmit('2','2');">Save</button>
             </div>
             <div class="button-4-all-2">
-                <button id="submit-button2" type="button"  disabled="true" onclick="submitAnswer('2','2','2'); test();">Submit</button>
+                <button id="submit-button2" type="button"  disabled="true" onclick="submitAnswer('2','2','2'); ;">Submit</button>
             </div>
         </div> <!-- Closing tag for the "main-content" div -->
     </section>
@@ -215,7 +215,7 @@
                 <button id="save-button3" type="button" onclick="displayCurrentAdult('3'); change_adult('q3'); save('3', '3', '3'); disableSubmit('3','3');">Save</button>
             </div>
             <div class="button-4-all-3">
-                <button id="submit-button3" type="button"  disabled="true" onclick="submitAnswer('3','3','3'); test();">Submit</button>
+                <button id="submit-button3" type="button"  disabled="true" onclick="submitAnswer('3','3','3'); ;">Submit</button>
             </div>
         </div> <!-- Closing tag for the "main-content" div -->
     </section>
@@ -283,7 +283,7 @@
                 <button id="save-button4" type="button" onclick="displayCurrentAdult('4'); change_adult('q4'); save('4', '4', '4'); disableSubmit('4','4');">Save</button>
             </div>
             <div class="button-4-all-4">
-                <button id="submit-button4" type="button"  disabled="true" onclick="submitAnswer('4','4','4'); test();">Submit</button>
+                <button id="submit-button4" type="button"  disabled="true" onclick="submitAnswer('4','4','4'); ;">Submit</button>
             </div>
         </div> <!-- Closing tag for the "main-content" div -->
     </section>
@@ -351,7 +351,7 @@
                 <button id="save-button5" type="button" onclick="displayCurrentAdult('5'); change_adult('q5'); save('5', '5', '5'); disableSubmit('5','5');">Save</button>
             </div>
             <div class="button-4-all-5">
-                <button id="submit-button5" type="button"  disabled="true" onclick="submitAnswer('5','5','5'); test();">Submit</button>
+                <button id="submit-button5" type="button"  disabled="true" onclick="submitAnswer('5','5','5');">Submit</button>
             </div>
         </div> <!-- Closing tag for the "main-content" div -->
     </section>
@@ -412,13 +412,13 @@
                 <button id="save-button6" type="button" onclick="displayCurrentAdult('6'); change_adult('q6'); save('6', '6', '6'); disableSubmit('6','6');">Save</button>
             </div>
             <div class="button-4-all-6">
-                <button id="submit-button6" type="button"  disabled="true" onclick="submitAnswer('6','6','6'); test();">Submit</button>
+                <button id="submit-button6" type="button"  disabled="true" onclick="submitAnswer('6','6','6');">Submit</button>
             </div>
         </div> <!-- Closing tag for the "main-content" div -->
     </section>
     <section class="result-button">
         <div class="button-4-all">
-            <button onclick="route()">Results</button>
+            <button id="result-button" onclick="route()" disabled>Results</button>
         </div>
     </section>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -471,7 +471,7 @@ function disableSubmit(submitButtonNum, formNumber) {
 
     formStatus[`form${formNumber}`] = true;
 
-    if(disableCount == 2)
+    if(disableCount == adult_num)
     {
         //Reset the current adult to "adult_0"
         currentAdult = "adult_0";
@@ -562,6 +562,11 @@ function disableSubmit(submitButtonNum, formNumber) {
             body: JSON.stringify(list_of_form_data),
         })
 
+        if(formStatus['form1'] && formStatus['form2'] && formStatus['form3'] && formStatus['form4'] && formStatus['form5'] && formStatus['form6'])
+        {
+            document.getElementById('result-button').disabled = false;
+        }
+
     }
 </script>
 <script id="text-state-changer">
@@ -635,15 +640,8 @@ function disableSubmit(submitButtonNum, formNumber) {
 
     console.log("form status: " + formStatus)
 
-   function test()
-   {
 
     console.log(formStatus)
-    if(formStatus['form1'] === formStatus['form2'] === formStatus['form3'] === formStatus['form4'] === formStatus['form5'] === formStatus['form6'])
-    {
-        document.getElementById('resultsButton').disabled = false;
-    }
-   }
 
    function route()
    {

@@ -296,7 +296,7 @@ class Questions(db.Model):
 class BasicInformationForm(FlaskForm):
 
     num_adults = IntegerField(validators=[InputRequired()], render_kw={
-                              "placeholder": "Number of Adults (e.g 2)", "class": "form-control"})
+                              "placeholder": "Number of Adults must be more than 1: (eg. 2)", "class": "form-control"})
     submit = SubmitField("Next")
 
 class RegistrationForm(FlaskForm):
