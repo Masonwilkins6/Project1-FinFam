@@ -11,7 +11,7 @@ from flask_session import Session
 app = Flask(__name__)
 app.config.update(
     SECRET_KEY="2@l!ITu",
-    SQLALCHEMY_DATABASE_URI='postgresql://postgres:1234@localhost/Users',
+    SQLALCHEMY_DATABASE_URI='postgresql://postgres:xAt582pur!@localhost/FinFamStorage',
     SQLALCHEMY_TRACK_MODIFICATIONS=False,
     SESSION_TYPE = 'filesystem'
 )

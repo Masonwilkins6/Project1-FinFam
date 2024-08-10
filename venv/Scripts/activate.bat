@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\mwilkins\Desktop\Capstone-final\venv
+set VIRTUAL_ENV=C:\Users\mason\OneDrive\Desktop\GitHub\automatedesktop\Project1-FinFam\venv
 
 if not defined PROMPT set PROMPT=$P$G
 
