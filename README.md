@@ -18,6 +18,3 @@ HTML, CSS, Vanilla JS, Jquery
 
 Backend:
 Python, Flask, Postgresql
-
-Hosted:
-Heroku
